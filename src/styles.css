@@ -1,3 +1,7 @@
+
+/* We must import css files from NPM package */
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+
 html,
 body {
   height: 100%;
