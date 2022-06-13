@@ -16,3 +16,7 @@
   align-items: center;
   height: 100%;
 }
+
+.app__content > * {
+  margin: 16px;
+}
