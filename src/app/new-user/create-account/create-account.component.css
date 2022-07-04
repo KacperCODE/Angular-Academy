@@ -1,0 +1,14 @@
+:host {
+    padding: 32px;
+}
+
+.content__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.content__group {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0 32px 0; 
+}

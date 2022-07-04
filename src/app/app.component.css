@@ -7,16 +7,26 @@
   bottom: 0;
   left: 0;
   right: 0;
+  background-color: #ebebeb;
 }
 
 .app__content {
   display: flex;
   margin-top: 100px;
-  flex-direction: column;
-  align-items: center;
   height: 100%;
 }
 
 .app__content > * {
-  margin: 16px;
+  margin: 32px;
+  width: 50%;
 }
+
+.app__content app-create-account {
+  border: 1px solid #ebebeb;
+  height: fit-content;
+  max-height: calc(100% - 264px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.137), 0 2px 4px 0 #ebebeb,
+  0 4px 8px 0 #ebebeb, inset 0 1px 0 0 #ebebeb;
+  border-radius: 8px;
+  background-color: white;
+} 
