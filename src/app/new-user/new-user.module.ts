@@ -6,16 +6,16 @@ import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
+  imports: [
+    CommonModule,
+    SharedModule
+  ],
   declarations: [
     CreateAccountComponent
   ],
   exports: [
     CreateAccountComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule
-  ]
 })
 export class NewUserModule { }
  

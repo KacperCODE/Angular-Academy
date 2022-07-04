@@ -12,3 +12,13 @@
     gap: 8px;
     margin: 16px 0 32px 0; 
 }
+
+.content__footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+}

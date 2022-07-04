@@ -1,25 +1,61 @@
 <div class="content__wrapper">
-  <h2>Basic Details</h2>
+  <section [formGroup]="userDetails">
+    <h2>Basic Details</h2>
+    <div class="content__group">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput [formControl]="userDetails.controls.name" />
+        <mat-error *ngIf="userDetails.controls.name.hasError('required')">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Surname</mat-label>
+        <input matInput [formControl]="userDetails.controls.surname" />
+        <mat-error *ngIf="userDetails.controls.surname.hasError('required')">
+          Surname is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <h2>Additional Details</h2>
+    <div class="content__group">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="userDetails.controls.email" />
+
+        <mat-error *ngIf="userDetails.controls.email.hasError('pattern')">
+          Email has incorrect format
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </section>
+
+  <h2>User Agreements</h2>
   <div class="content__group">
-    <span>Username Input</span>
-    <span>Surname Input</span>
+    <p>
+      <mat-checkbox
+        [(ngModel)]="tosAccepted"
+        (ngModelChange)="onTosCheckboxChange($event)"
+        >I accept Terms of Service</mat-checkbox
+      >
+    </p>
   </div>
-  <h2>Additional Details</h2>
-  <div class="content__group">
-    <span>Email Input</span>
-  </div>
 
-  <hr />
-
-  <h2>User Agreement</h2>
-  <div class="content__group">
-    <span>Terms of Service checkbox</span>
-  </div>
-
-  <br />
-
-  <div class="content__group">
-    <span>Reset Button</span>
-    <span>Confirmation Button</span>
+  <div class="content__group content__footer">
+    <button
+      mat-raised-button
+      [disabled]="userDetails.pristine"
+      (click)="resetForm()"
+    >
+      Reset
+    </button>
+    <button
+      mat-raised-button
+      [disabled]="!userDetails.valid || !tosAccepted"
+      (click)="submitForm()"
+    >
+      Submit
+    </button>
   </div>
 </div>
