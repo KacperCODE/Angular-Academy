@@ -1,5 +1,11 @@
 <div class="app__wrapper">
+  <div class="buttons">
+    <button mat-raised-button color="primary" [routerLink]="['/']">Home</button>
+    <button mat-raised-button color="primary" [routerLink]="['/create']">
+      Create
+    </button>
+  </div>
   <div class="app__content">
-    <app-create-account></app-create-account>
+    <router-outlet></router-outlet>
   </div>
 </div>
