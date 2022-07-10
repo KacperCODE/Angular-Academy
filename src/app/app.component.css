@@ -10,15 +10,15 @@
   background-color: #ebebeb;
 }
 
-.app__content {
-  display: flex;
-  margin-top: 100px;
-  height: 100%;
+router-outlet {
+  width: 0 !important;
 }
 
-.app__content > * {
-  margin: 32px;
-  width: 50%;
+.app__content {
+  margin-top: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .app__content app-create-account {
@@ -26,7 +26,7 @@
   height: fit-content;
   max-height: calc(100% - 264px);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.137), 0 2px 4px 0 #ebebeb,
-  0 4px 8px 0 #ebebeb, inset 0 1px 0 0 #ebebeb;
+    0 4px 8px 0 #ebebeb, inset 0 1px 0 0 #ebebeb;
   border-radius: 8px;
   background-color: white;
-} 
+}
