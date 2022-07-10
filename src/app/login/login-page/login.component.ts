@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -14,7 +15,7 @@ import {
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -29,5 +30,6 @@ export class LoginComponent implements OnInit {
 
   login() {
     localStorage.setItem("isLoggedIn", "true");
+    this.router.navigate(["/"]);
   }
 }
