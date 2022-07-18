@@ -9,6 +9,7 @@ import { NewUserModule } from "./new-user/new-user.module";
 import { LoginModule } from "./login/login.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { OverviewModule } from "./overview/overview.module";
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
     NewUserModule,
     LoginModule,
     AppRoutingModule,
+    OverviewModule
   ],
   declarations: [AppComponent, PageNotFoundComponent],
   bootstrap: [AppComponent],

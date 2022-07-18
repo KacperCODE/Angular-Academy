@@ -5,6 +5,7 @@ import { HomePageComponent } from "./home/home-page/home-page.component";
 import { LoginComponent } from "./login/login-page/login.component";
 
 import { CreateAccountComponent } from "./new-user/create-account/create-account.component";
+import { UserOverviewComponent } from "./overview/user-overview/user-overview.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path: "create",
     component: CreateAccountComponent,
+    canActivate: [LoginGuard],
+  },
+  {
+    path: "overview",
+    component: UserOverviewComponent,
     canActivate: [LoginGuard],
   },
   { path: "**", component: PageNotFoundComponent },

@@ -11,7 +11,7 @@ import {
   regexpValidator,
 } from "../../shared/validators/regexp-validator";
 
-interface UserRegistrationDetails {
+export interface UserDetails {
   name: string;
   surname: string;
   email: string;
@@ -56,7 +56,7 @@ export class CreateAccountComponent implements OnInit {
   }
 
   submitForm() {
-    const userRegistrationDetails: UserRegistrationDetails = {
+    const userRegistrationDetails: UserDetails = {
       name: this.userDetails.controls.name.value,
       surname: this.userDetails.controls.surname.value,
       email: this.userDetails.controls.email.value,
