@@ -1,5 +1,5 @@
 <div class="app__wrapper">
-  <div class="buttons">
+  <div class="buttons" *ngIf="isUserLoggedIn()">
     <button mat-raised-button color="primary" [routerLink]="['/']">Home</button>
     <button mat-raised-button color="primary" [routerLink]="['/create']">
       Create

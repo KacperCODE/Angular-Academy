@@ -6,4 +6,10 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
+  isUserLoggedIn() {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    
+    return isLoggedIn
+  }
 }

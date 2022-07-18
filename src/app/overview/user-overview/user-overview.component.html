@@ -1,23 +1,17 @@
 <div>
   <h2>List of all users:</h2>
 
-  <!-- <div class="user-entry" *ngFor=""></div> -->
+  <ng-container
+    *ngIf="users.length; then usersList; else noUsers"
+  ></ng-container>
 
-  <div class="user-entry">
-    <span>Jan</span>
-    <span>Kowalski</span>
-    <span>jankowalski@gmail.com</span>
-  </div>
+  <ng-template #usersList>
+    <div class="user-entry" *ngFor="let user of users">
+      <span>{{ user.name }}</span>
+      <span>{{ user.surname }}</span>
+      <span>{{ user.email }}</span>
+    </div>
+  </ng-template>
 
-  <div class="user-entry">
-    <span>Jan</span>
-    <span>Kowalski</span>
-    <span>jankowalski@gmail.com</span>
-  </div>
-
-  <div class="user-entry">
-    <span>Jan</span>
-    <span>Kowalski</span>
-    <span>jankowalski@gmail.com</span>
-  </div>
+  <ng-template #noUsers> No created users could be found </ng-template>
 </div>

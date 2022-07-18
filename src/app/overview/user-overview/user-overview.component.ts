@@ -8,7 +8,26 @@ import { UserDetails } from '../../new-user/create-account/create-account.compon
 })
 export class UserOverviewComponent implements OnInit {
 
-  users: UserDetails[] = []
+  users: UserDetails[] = [
+    {
+      "name": "Jan",
+      "surname": "Kowalski",
+      "email": "jankowalski@gmail.com",
+      "tosAccepted": true
+  },
+  {
+    "name": "Krystyna",
+    "surname": "Zgazownik",
+    "email": "krysia@gmail.com",
+    "tosAccepted": true
+  },
+  {
+    "name": "Kamil",
+    "surname": "Tumulec",
+    "email": "tumulec@gmail.com",
+    "tosAccepted": true
+  }
+  ];
 
   constructor() { }
 
