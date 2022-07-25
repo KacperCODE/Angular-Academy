@@ -3,7 +3,7 @@
     Selected user:
     <span
       *ngIf="
-        selectedUserIndex >= 0 && selectedUserIndex !== null;
+        selectedUserIndex >= 0 && selectedUserIndex !== null && users.length;
         else userNotSelected
       "
     >
