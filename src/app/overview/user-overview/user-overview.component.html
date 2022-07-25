@@ -1,4 +1,20 @@
 <div>
+  <h2>
+    Selected user:
+    <span
+      *ngIf="
+        selectedUserIndex >= 0 && selectedUserIndex !== null;
+        else userNotSelected
+      "
+    >
+      {{
+        users[selectedUserIndex]?.name + " " + users[selectedUserIndex]?.surname
+      }}
+    </span>
+    <ng-template #userNotSelected>
+      <span *ngIf="!selectedUserIndex"></span>
+    </ng-template>
+  </h2>
   <h2>List of all users:</h2>
 
   <ng-container
@@ -6,10 +22,11 @@
   ></ng-container>
 
   <ng-template #usersList>
-    <div class="user-entry" *ngFor="let user of users">
-      <span>{{ user.name }}</span>
-      <span>{{ user.surname }}</span>
-      <span>{{ user.email }}</span>
+    <div class="users-list">
+      <app-user
+        *ngFor="let userInstance of users; index as index"
+        (click)="setSelectedUserIndex(index)"
+      ></app-user>
     </div>
   </ng-template>
 

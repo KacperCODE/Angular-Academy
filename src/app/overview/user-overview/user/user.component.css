@@ -1,0 +1,27 @@
+.user-entry {
+  display: flex;
+  padding: 16px;
+  width: 500px;
+  border: 1px solid #adadad;
+  background-color: white;
+  margin: 8px;
+  border-radius: 3px;
+}
+
+.badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-right: 8px;
+}
+
+.delete-icon {
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.user-entry span {
+  margin: 0 4px;
+}
