@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from "@angular/core";
   styleUrls: ["./user-badge.component.css"],
 })
 export class UserBadgeComponent implements OnInit {
+  @Input() isSelected: boolean;
   constructor() {}
 
   ngOnInit(): void {}

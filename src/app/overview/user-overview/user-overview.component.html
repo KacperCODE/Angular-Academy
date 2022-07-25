@@ -3,12 +3,16 @@
     Selected user:
     <span
       *ngIf="
-        selectedUserIndex >= 0 && selectedUserIndex !== null;
+        selectedUserIndex >= 0 &&
+          selectedUserIndex !== null &&
+          createAccountService.getUsers().length;
         else userNotSelected
       "
     >
       {{
-        users[selectedUserIndex]?.name + " " + users[selectedUserIndex]?.surname
+        createAccountService.getUsers()[selectedUserIndex]?.name +
+          " " +
+          createAccountService.getUsers()[selectedUserIndex]?.surname
       }}
     </span>
     <ng-template #userNotSelected>
@@ -24,8 +28,14 @@
   <ng-template #usersList>
     <div class="users-list">
       <app-user
-        *ngFor="let userInstance of users; index as index"
+        *ngFor="
+          let userInstance of createAccountService.getUsers();
+          index as index
+        "
         (click)="setSelectedUserIndex(index)"
+        (delete)="filterOutUserIndex(index)"
+        [user]="userInstance"
+        [isSelected]="index === createAccountService.getSelectedUserIndex()"
       ></app-user>
     </div>
   </ng-template>

@@ -6,6 +6,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router } from "@angular/router";
+import { CreateAccountService } from "../../services/create-account.service";
 import {
   EMAIL_PATTERN,
   regexpValidator,
@@ -27,7 +28,11 @@ export class CreateAccountComponent implements OnInit {
 
   tosAccepted = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private createAccountService: CreateAccountService
+  ) {}
 
   ngOnInit() {
     this.userDetails = this.formBuilder.group({
@@ -63,7 +68,7 @@ export class CreateAccountComponent implements OnInit {
       tosAccepted: this.tosAccepted,
     };
 
-    console.log(userRegistrationDetails);
-    this.router.navigate(["/"]);
+    this.createAccountService.addUser(userRegistrationDetails);
+    this.router.navigate(["/overview"]);
   }
 }

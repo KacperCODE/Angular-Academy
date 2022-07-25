@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserDetails } from "../../new-user/create-account/create-account.component";
+import { CreateAccountService } from "../../services/create-account.service";
 
 @Component({
   selector: "app-user-overview",
@@ -30,11 +31,15 @@ export class UserOverviewComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(public createAccountService: CreateAccountService) {}
 
   ngOnInit(): void {}
 
   setSelectedUserIndex(index: number): void {
-    this.selectedUserIndex = index;
+    this.createAccountService.setSelectedUserIndex(index);
+  }
+
+  filterOutUserIndex(index: number): void {
+    this.createAccountService.removeUser(index);
   }
 }

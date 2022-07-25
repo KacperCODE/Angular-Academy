@@ -1,3 +1,4 @@
+import { ThisReceiver } from "@angular/compiler";
 import { Component, OnInit } from "@angular/core";
 import {
   FormBuilder,
@@ -6,6 +7,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router } from "@angular/router";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: "app-login",
@@ -15,7 +17,11 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -29,7 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    localStorage.setItem("isLoggedIn", "true");
+    this.authService.setIsLogged(true);
     this.router.navigate(["/"]);
   }
 }
