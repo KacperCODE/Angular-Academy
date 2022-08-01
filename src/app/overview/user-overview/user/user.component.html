@@ -1,7 +1,9 @@
 <div class="user-entry">
   <div class="badges">
     <app-user-badge [isSelected]="isSelected"></app-user-badge>
-    <mat-icon class="delete-icon" (click)="deleteEntry()">delete</mat-icon>
+    <mat-icon class="delete-icon" (click)="deleteEntry($event)"
+      >delete</mat-icon
+    >
   </div>
   <span>{{ user.name }}</span>
   <span>{{ user.surname }}</span>
