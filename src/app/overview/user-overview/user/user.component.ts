@@ -15,7 +15,9 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  deleteEntry(): void {
+  deleteEntry(event: MouseEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
     this.delete.emit();
   }
 }

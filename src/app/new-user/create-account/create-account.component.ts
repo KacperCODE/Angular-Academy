@@ -25,6 +25,7 @@ export interface UserDetails {
 })
 export class CreateAccountComponent implements OnInit {
   userDetails: FormGroup;
+  createdUsers: UserDetails[];
 
   tosAccepted = false;
 
@@ -49,6 +50,9 @@ export class CreateAccountComponent implements OnInit {
         regexpValidator(EMAIL_PATTERN),
       ]),
     });
+    this.createAccountService.getUsers().subscribe((users) => {
+      this.createdUsers = users;
+    });
   }
 
   resetForm() {
@@ -68,7 +72,7 @@ export class CreateAccountComponent implements OnInit {
       tosAccepted: this.tosAccepted,
     };
 
-    this.createAccountService.addUser(userRegistrationDetails);
+    this.createAccountService.addUser(userRegistrationDetails).subscribe();
     this.router.navigate(["/overview"]);
   }
 }
