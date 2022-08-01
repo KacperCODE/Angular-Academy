@@ -14,12 +14,12 @@ export class CreateAccountService {
     this.createdUsers = this.createdUsers.filter(
       (_user, index) => index !== inputIndex
     );
-    if (this.selectedUserIndex === inputIndex) {
-      this.selectedUserIndex = null;
-    }
-    if (this.selectedUserIndex > inputIndex) {
-      --this.selectedUserIndex;
-    }
+    // if (this.selectedUserIndex === inputIndex) {
+    //   this.selectedUserIndex = null;
+    // }
+    // if (this.selectedUserIndex > inputIndex) {
+    //   --this.selectedUserIndex;
+    // }
   }
 
   addUser(user: UserDetails): void {
