@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { UserDetails } from "../../../new-user/create-account/create-account.component";
+import { UserDetails } from "../../../@api/user/user.model";
 
 @Component({
   selector: "app-user",

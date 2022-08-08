@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { UserDetails } from "../../new-user/create-account/create-account.component";
-import { CreateAccountService } from "../../services/create-account.service";
+import { UsersStore } from "../../@store";
 
 @Component({
   selector: "app-user-overview",
@@ -9,26 +8,18 @@ import { CreateAccountService } from "../../services/create-account.service";
 })
 export class UserOverviewComponent implements OnInit {
   selectedIndex: number;
-  users: UserDetails[];
-  constructor(public createAccountService: CreateAccountService) {}
+
+  constructor(public usersStore: UsersStore) {}
 
   ngOnInit(): void {
-    this.createAccountService.fetchUsers().subscribe();
-    this.createAccountService.getUsers().subscribe((users) => {
-      this.users = users;
-    });
-    this.createAccountService.getSelectedUserIndex().subscribe((index) => {
-      console.log(index);
-
-      this.selectedIndex = index;
-    });
+    this.usersStore.loadUsers();
   }
 
   setSelectedUserIndex(index: number): void {
-    this.createAccountService.setSelectedUserIndex(index);
+    // this.createAccountService.setSelectedUserIndex(index);
   }
 
   filterOutUserIndex(index: number): void {
-    this.createAccountService.removeUser(index).subscribe();
+    // this.createAccountService.removeUser(index).subscribe();
   }
 }

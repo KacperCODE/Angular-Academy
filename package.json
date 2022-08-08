@@ -12,6 +12,10 @@
     "backend": "node server.js"
   },
   "dependencies": {
+    "@ngrx/effects": "^14.0.0",
+    "@ngrx/schematics": "^14.0.0",
+    "@ngrx/store": "^14.0.0",
+    "@ngrx/store-devtools": "^14.0.0",
     "@angular/animations": "^14.0.0",
     "@angular/cdk": "14.0.1",
     "@angular/common": "^14.0.0",

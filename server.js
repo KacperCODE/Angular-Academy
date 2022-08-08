@@ -11,22 +11,28 @@ app.listen(8080);
 
 users = [
   {
+    index: 'jz08eh',
     name: "Jan",
     surname: "Kowalski",
     email: "jankowalski@gmail.com",
     tosAccepted: true,
+    isSelected: false
   },
   {
+    index: 'r0uol',
     name: "Krystyna",
     surname: "Zgazownik",
     email: "krysia@gmail.com",
     tosAccepted: true,
+    isSelected: false
   },
   {
+    index: '94q14g',
     name: "Kamil",
-    surname: "Tumulec",
+    surname: "TUMUⓁEC",
     email: "tumulec@gmail.com",
     tosAccepted: true,
+    isSelected: false
   },
 ];
 
@@ -70,22 +76,28 @@ app.delete('/users', (req, res) => {
 app.post("/reset", (req, res) => {
   users = [
     {
+      index: 'jz08eh',
       name: "Jan",
       surname: "Kowalski",
       email: "jankowalski@gmail.com",
       tosAccepted: true,
+      isSelected: false
     },
     {
+      index: 'r0uol',
       name: "Krystyna",
       surname: "Zgazownik",
       email: "krysia@gmail.com",
       tosAccepted: true,
+      isSelected: false
     },
     {
+      index: '94q14g',
       name: "Kamil",
-      surname: "Tumulec",
+      surname: "TUMUⓁEC",
       email: "tumulec@gmail.com",
       tosAccepted: true,
+      isSelected: false
     },
   ];
 

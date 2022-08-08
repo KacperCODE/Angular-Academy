@@ -6,18 +6,13 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router } from "@angular/router";
-import { CreateAccountService } from "../../services/create-account.service";
+import { UserDetails } from "../../@api/user/user.model";
+import { UsersStore } from "../../@store";
 import {
   EMAIL_PATTERN,
   regexpValidator,
 } from "../../shared/validators/regexp-validator";
 
-export interface UserDetails {
-  name: string;
-  surname: string;
-  email: string;
-  tosAccepted: boolean;
-}
 @Component({
   selector: "app-create-account",
   templateUrl: "./create-account.component.html",
@@ -32,7 +27,7 @@ export class CreateAccountComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private createAccountService: CreateAccountService
+    private usersStore: UsersStore,
   ) {}
 
   ngOnInit() {
@@ -50,7 +45,8 @@ export class CreateAccountComponent implements OnInit {
         regexpValidator(EMAIL_PATTERN),
       ]),
     });
-    this.createAccountService.getUsers().subscribe((users) => {
+
+    this.usersStore.users$.subscribe((users) => {
       this.createdUsers = users;
     });
   }
@@ -66,13 +62,15 @@ export class CreateAccountComponent implements OnInit {
 
   submitForm() {
     const userRegistrationDetails: UserDetails = {
+      index: (Math.random() + 1).toString(36).substring(7),
       name: this.userDetails.controls.name.value,
       surname: this.userDetails.controls.surname.value,
       email: this.userDetails.controls.email.value,
       tosAccepted: this.tosAccepted,
+      selected: false
     };
 
-    this.createAccountService.addUser(userRegistrationDetails).subscribe();
+    this.usersStore.createUser(userRegistrationDetails);
     this.router.navigate(["/overview"]);
   }
 }

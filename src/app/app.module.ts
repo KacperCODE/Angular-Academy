@@ -11,6 +11,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { OverviewModule } from "./overview/overview.module";
 import { HttpClientModule } from "@angular/common/http";
+import { AppStoreModule } from "./@store";
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     OverviewModule,
     HttpClientModule,
+    AppStoreModule
   ],
   declarations: [AppComponent, PageNotFoundComponent],
   bootstrap: [AppComponent],
