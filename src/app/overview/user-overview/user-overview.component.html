@@ -5,7 +5,7 @@
       *ngIf="
         createAccountService.getSelectedUserIndex() >= 0 &&
           createAccountService.getSelectedUserIndex() !== null &&
-          createAccountService.getUsers().length;
+          users?.length;
         else userNotSelected
       "
     >
@@ -26,16 +26,13 @@
   <h2>List of all users:</h2>
 
   <ng-container
-    *ngIf="createAccountService.getUsers().length; then usersList; else noUsers"
+    *ngIf="users?.length; then usersList; else noUsers"
   ></ng-container>
 
   <ng-template #usersList>
     <div class="users-list">
       <app-user
-        *ngFor="
-          let userInstance of createAccountService.getUsers();
-          index as index
-        "
+        *ngFor="let userInstance of users; index as index"
         (click)="setSelectedUserIndex(index)"
         (delete)="filterOutUserIndex(index)"
         [user]="userInstance"

@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { UserDetails } from "../../new-user/create-account/create-account.component";
 import { CreateAccountService } from "../../services/create-account.service";
 
 @Component({
@@ -7,15 +8,24 @@ import { CreateAccountService } from "../../services/create-account.service";
   styleUrls: ["./user-overview.component.css"],
 })
 export class UserOverviewComponent implements OnInit {
+  users: UserDetails[];
   constructor(public createAccountService: CreateAccountService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.createAccountService.getUsers().subscribe((users) => {
+      console.log(users);
+
+      this.users = users;
+    });
+  }
 
   setSelectedUserIndex(index: number): void {
     this.createAccountService.setSelectedUserIndex(index);
   }
 
   filterOutUserIndex(index: number): void {
-    this.createAccountService.removeUser(index);
+    this.createAccountService.removeUser(index).subscribe((users) => {
+      this.users = users;
+    });
   }
 }

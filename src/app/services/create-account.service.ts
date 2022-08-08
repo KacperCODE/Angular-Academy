@@ -1,4 +1,7 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { environment } from "../environments/environment";
 import { UserDetails } from "../new-user/create-account/create-account.component";
 
 @Injectable({
@@ -8,26 +11,20 @@ export class CreateAccountService {
   private createdUsers: UserDetails[] = [];
   private selectedUserIndex: number;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  removeUser(inputIndex: number): void {
-    this.createdUsers = this.createdUsers.filter(
-      (_user, index) => index !== inputIndex
-    );
-    // if (this.selectedUserIndex === inputIndex) {
-    //   this.selectedUserIndex = null;
-    // }
-    // if (this.selectedUserIndex > inputIndex) {
-    //   --this.selectedUserIndex;
-    // }
+  removeUser(inputIndex: number): Observable<UserDetails[]> {
+    return this.http.delete<UserDetails[]>(environment.baseUrl + "users", {
+      body: { index: inputIndex },
+    });
   }
 
-  addUser(user: UserDetails): void {
-    this.createdUsers.push(user);
+  addUser(user: UserDetails): Observable<UserDetails[]> {
+    return this.http.post<UserDetails[]>(environment.baseUrl + "users", user);
   }
 
-  getUsers(): UserDetails[] {
-    return this.createdUsers;
+  getUsers(): Observable<UserDetails[]> {
+    return this.http.get<UserDetails[]>(environment.baseUrl + "users");
   }
 
   setSelectedUserIndex(index: number) {

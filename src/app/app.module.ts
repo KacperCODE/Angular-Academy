@@ -10,6 +10,7 @@ import { LoginModule } from "./login/login.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { OverviewModule } from "./overview/overview.module";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { OverviewModule } from "./overview/overview.module";
     NewUserModule,
     LoginModule,
     AppRoutingModule,
-    OverviewModule
+    OverviewModule,
+    HttpClientModule,
   ],
   declarations: [AppComponent, PageNotFoundComponent],
   bootstrap: [AppComponent],
