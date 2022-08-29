@@ -1,32 +1,30 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppComponent } from "./app.component";
-import { SharedModule } from "./shared/shared.module";
-import { HomeModule } from "./home/home.module";
-import { NewUserModule } from "./new-user/new-user.module";
-import { LoginModule } from "./login/login.module";
-import { AppRoutingModule } from "./app-routing.module";
-import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { OverviewModule } from "./overview/overview.module";
-import { HttpClientModule } from "@angular/common/http";
-import { AppStoreModule } from "./@store";
+import { AppComponent } from './app.component';
+import { ExampleFirstComponent } from './example-first/example-first.component';
+import { ExampleSecondComponent } from './example-second/example-second.component';
+import { ExampleThirdComponent } from './example-third/example-third.component';
+import { ExampleFourthComponent } from './example-fourth/example-fourth.component';
+import { ExampleFifthComponent } from './example-fifth/example-fifth.component';
+import { ExampleSixthComponent } from './example-sixth/example-sixth.component';
+import { ExampleSeventhComponent } from './example-seventh/example-seventh.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    SharedModule,
-    HomeModule,
-    NewUserModule,
-    LoginModule,
-    AppRoutingModule,
-    OverviewModule,
-    HttpClientModule,
-    AppStoreModule
+  declarations: [
+    AppComponent,
+    ExampleFirstComponent,
+    ExampleSecondComponent,
+    ExampleThirdComponent,
+    ExampleFourthComponent,
+    ExampleFifthComponent,
+    ExampleSixthComponent,
+    ExampleSeventhComponent
   ],
-  declarations: [AppComponent, PageNotFoundComponent],
-  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
