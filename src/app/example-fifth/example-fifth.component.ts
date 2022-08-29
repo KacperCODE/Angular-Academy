@@ -27,7 +27,7 @@ export class ExampleFifthComponent {
     let featuresData: FeaturesData[] = [];
 
     dataStructures.forEach((entry) => {
-      featuresData = featuresData.concat(entry);
+      featuresData = featuresData.concat(entry); 
     });
 
     const totalValue = featuresData
