@@ -11,6 +11,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { OverviewModule } from "./overview/overview.module";
 import { HttpClientModule } from "@angular/common/http";
+import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
+import { environment } from "../environments/environment";
+import { provideFirestore, getFirestore } from "@angular/fire/firestore";
+import { FIREBASE_OPTIONS } from "@angular/fire/compat";
 
 @NgModule({
   imports: [
@@ -23,8 +27,11 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     OverviewModule,
     HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
   ],
   declarations: [AppComponent, PageNotFoundComponent],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
