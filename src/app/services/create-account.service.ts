@@ -1,4 +1,3 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {
   AngularFirestore,
@@ -16,7 +15,7 @@ export class CreateAccountService {
   private usersCollection$: AngularFirestoreCollection<UserDetails>;
   private users$: Observable<UserDetails[]>;
 
-  constructor(private http: HttpClient, afs: AngularFirestore) {
+  constructor(afs: AngularFirestore) {
     this.usersCollection$ = afs.collection<UserDetails>("users");
     this.users$ = this.usersCollection$
       .valueChanges({ idField: "id" })
