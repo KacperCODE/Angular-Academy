@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, map, Observable, tap, withLatestFrom } from "rxjs";
-import { environment } from "../environments/environment";
+import { environment } from "../../environments/environment";
 import { UserDetails } from "../new-user/create-account/create-account.component";
 
 @Injectable({
