@@ -17,6 +17,7 @@ export interface UserDetails {
   surname: string;
   email: string;
   tosAccepted: boolean;
+  id?: string;
 }
 @Component({
   selector: "app-create-account",
@@ -72,7 +73,7 @@ export class CreateAccountComponent implements OnInit {
       tosAccepted: this.tosAccepted,
     };
 
-    this.createAccountService.addUser(userRegistrationDetails).subscribe();
+    this.createAccountService.addUser(userRegistrationDetails);
     this.router.navigate(["/overview"]);
   }
 }

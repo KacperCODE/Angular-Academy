@@ -13,13 +13,10 @@ export class UserOverviewComponent implements OnInit {
   constructor(public createAccountService: CreateAccountService) {}
 
   ngOnInit(): void {
-    this.createAccountService.fetchUsers().subscribe();
     this.createAccountService.getUsers().subscribe((users) => {
       this.users = users;
     });
     this.createAccountService.getSelectedUserIndex().subscribe((index) => {
-      console.log(index);
-
       this.selectedIndex = index;
     });
   }
@@ -28,7 +25,7 @@ export class UserOverviewComponent implements OnInit {
     this.createAccountService.setSelectedUserIndex(index);
   }
 
-  filterOutUserIndex(index: number): void {
-    this.createAccountService.removeUser(index).subscribe();
+  deleteUser(user: UserDetails): void {
+    this.createAccountService.removeUser(user);
   }
 }

@@ -92,6 +92,16 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "demo:build:production",
+            "firebaseProject": "deploy-angulara-preview-001",
+            "firebaseHostingSite": "deploy-angulara-preview-001"
+          }
         }
       }
     }

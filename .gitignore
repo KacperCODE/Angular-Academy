@@ -63,3 +63,8 @@ src/public/assets/i18n/de.json
 src/i18n-vitoguide/pl.json
 src/i18n-vitoguide/en.json
 src/i18n-vitoguide/de.json
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

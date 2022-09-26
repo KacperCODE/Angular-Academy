@@ -24,7 +24,7 @@
       <app-user
         *ngFor="let userInstance of users; index as index"
         (click)="setSelectedUserIndex(index)"
-        (delete)="filterOutUserIndex(index)"
+        (delete)="deleteUser(userInstance)"
         [user]="userInstance"
         [isSelected]="index === selectedIndex"
       ></app-user>

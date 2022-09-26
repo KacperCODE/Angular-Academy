@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "deploy-angulara-preview-001"
+  },
+  "targets": {
+    "deploy-angulara-preview-001": {
+      "hosting": {
+        "demo": [
+          "deploy-angulara-preview-001"
+        ]
+      }
+    }
   }
 }
